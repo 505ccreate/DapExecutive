@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAP Executive | Luxury Chauffeur Service</title>
+    <link rel="icon" type="image/png" href="Images/DE-favicon.png">
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Non-blocking font load -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <!-- Feather icons deferred — won't block render -->
+    <script defer src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <style>
+        :root {
+            --bg: #0F1830;
+            --bg2: #131e3a;
+            --bg3: #172040;
+            --bgdark: #06080f;
+            --gold: #C9A84C;
+            --goldlt: #E2C46A;
+            --golddk: #8B6914;
+            --goldgrad: linear-gradient(180deg, #8B6914 0%, #C9A84C 30%, #E2C46A 50%, #C9A84C 70%, #8B6914 100%);
+            --text: #F0EAD6;
+            --muted: rgba(240, 234, 214, 0.62);
+            --ink: #080808;
+            --fhead: 'Cormorant Garamond', serif;
+            --fbody: 'Montserrat', sans-serif;
+            --flabel: 'Cinzel', serif;
+            --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --tr: all 0.4s var(--ease);
+            --bgold: 1px solid var(--gold);
+            --bsoft: 1px solid rgba(240, 234, 214, 0.1);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ═══════════════════════════════════════════════
+       DAY MODE — Aged parchment. Dark ink. Gold leaf.
+       Think: Bentley showroom at 2pm. Mahogany + brass.
+       Every value is explicit. No variable ambiguity.
+       ═══════════════════════════════════════════════ */
+        body.day {
+            --bg: #F0E8D8;
+            --bg2: #E6DBCA;
+            --bg3: #D9CCBA;
+            --text: #18120C;
+            --muted: rgba(24, 18, 12, 0.6);
+            --bsoft: 1px solid rgba(24, 18, 12, 0.14);
+            --shadow: 0 20px 60px rgba(18, 12, 6, 0.2);
+        }
+
+        /* body background is warm deep parchment, not washed out ivory */
+        body.day {
+            background: #F0E8D8;
+            color: #18120C;
+        }
+
+        /* NAV — always dark charcoal, same authority as night mode */
+        body.day nav {
+            background: rgba(14, 10, 6, .88) !important;
+            border-bottom: 1px solid rgba(201, 168, 76, .32) !important;
+            backdrop-filter: blur(20px) saturate(1.6);
+            -webkit-backdrop-filter: blur(20px) saturate(1.6);
+        }
+
+        body.day nav.scrolled {
+            background: rgba(8, 5, 2, .96) !important;
+            border-bottom-color: rgba(201, 168, 76, .5) !important;
+        }
+
+        body.day .navlogo-dap {
+            color: #F0EAD6 !important;
+        }
+
+        body.day .navlogo-sub {
+            color: #C9A84C !important;
+        }
+
+        body.day .navlinks a {
+            color: #E8E0D0 !important;
+        }
+
+        body.day .navlinks a:hover {
+            color: #E2C46A !important;
+        }
+
+        body.day .modetoggle {
+            color: #C9A84C !important;
+        }
+
+        /* MARQUEE — near black, gold italic text */
+        body.day .marquee {
+            background: #0a0704 !important;
+            border-top-color: rgba(201, 168, 76, .4) !important;
+            border-bottom-color: rgba(201, 168, 76, .4) !important;
+        }
+
+        body.day .mitem {
+            color: #C9A84C;
+        }
+
+        /* HERO LEFT — always dark, never changes */
+        body.day .heroleft {
+            background: linear-gradient(155deg, #06090f 0%, #0d1526 100%) !important;
+        }
+
+        /* ABOUT — rich warm parchment, deep ink */
+        body.day #about {
+            background: #E8DEC8 !important;
+        }
+
+        body.day #about .lbl {
+            color: #8B6914 !important;
+        }
+
+        body.day #about .ttl {
+            color: #18120C !important;
+            font-weight: 300;
+        }
+
+        body.day #about h3 {
+            color: #18120C !important;
+        }
+
+        body.day #about .about-grid p {
+            color: rgba(24, 18, 12, .7) !important;
+        }
+
+        body.day #about .about-quote {
+            color: #5C3D0A !important;
+            border-left-color: #C9A84C !important;
+            font-style: italic;
+        }
+
+        body.day #about .tags li {
+            background: rgba(139, 105, 20, .12) !important;
+            border-left-color: #8B6914 !important;
+            color: #18120C !important;
+        }
+
+        body.day #about .btn-outline {
+            color: #8B6914 !important;
+            border-color: #8B6914 !important;
+        }
+
+        body.day #about .btn-outline:hover {
+            background: #8B6914 !important;
+            color: #F0EAD6 !important;
+        }
+
+        /* FLEET — warm parchment bg, dark card contrast */
+        body.day #fleet {
+            background: #F0E8D8 !important;
+        }
+
+        body.day #fleet .section {
+            background: #F0E8D8 !important;
+        }
+
+        body.day #fleet .lbl {
+            color: #8B6914 !important;
+        }
+
+        body.day #fleet .ttl {
+            color: #18120C !important;
+        }
+
+        /* Fleet cards stay dark — they're the showroom floor */
+        body.day #fleet .fcard {
+            background: #12192E !important;
+            border-color: rgba(201, 168, 76, .25) !important;
+        }
+
+        body.day #fleet .fcard:hover {
+            border-color: #C9A84C !important;
+            box-shadow: 0 20px 50px rgba(18, 12, 6, .35) !important;
+        }
+
+        body.day #fleet .fname {
+            color: #F0EAD6 !important;
+        }
+
+        body.day #fleet .fspecs {
+            color: rgba(240, 234, 214, .55) !important;
+        }
+
+        body.day #fleet .fdesc {
+            color: rgba(240, 234, 214, .52) !important;
+        }
+
+        body.day #fleet .fbadge {
+            background: #1A2240 !important;
+            color: #C9A84C !important;
+        }
+
+        body.day #fleet .btn-outline {
+            color: #C9A84C !important;
+            border-color: #C9A84C !important;
+        }
+
+        body.day #fleet .btn-outline:hover {
+            background: #C9A84C !important;
+            color: #0d0a06 !important;
+        }
+
+        /* SERVICES — photo bg stays, overlay pure dark */
+        body.day #services::before {
+            background: #0a0d14 !important;
+            opacity: .92 !important;
+        }
+
+        body.day #services .lbl {
+            color: #E2C46A !important;
+        }
+
+        body.day #services .ttl {
+            color: #F0EAD6 !important;
+        }
+
+        body.day #services .scard {
+            background: rgba(6, 10, 20, .85) !important;
+            border-color: rgba(240, 234, 214, .1) !important;
+        }
+
+        body.day #services .stitle {
+            color: #F0EAD6 !important;
+        }
+
+        body.day #services .sdesc {
+            color: rgba(240, 234, 214, .55) !important;
+        }
+
+        body.day #services .sicon {
+            color: #C9A84C !important;
+        }
+
+        /* AI — warm parchment section */
+        body.day #ai {
+            background: #E6DBCA !important;
+        }
+
+        body.day #ai .lbl {
+            color: #8B6914 !important;
+        }
+
+        body.day #ai .ttl {
+            color: #18120C !important;
+        }
+
+        body.day #ai>.container>.ai-grid>div>p {
+            color: rgba(24, 18, 12, .68) !important;
+        }
+
+        body.day #ai .ai-feats i {
+            color: #8B6914 !important;
+        }
+
+        body.day #ai .ai-feats strong {
+            color: #18120C !important;
+        }
+
+        body.day #ai .ai-feats p {
+            color: rgba(24, 18, 12, .6) !important;
+        }
+
+        /* BOOKING — deeper warm tone, parchment card */
+        body.day #booking {
+            background: #DDD2BC !important;
+        }
+
+        body.day #booking .lbl {
+            color: #8B6914 !important;
+        }
+
+        body.day #booking .ttl {
+            color: #18120C !important;
+        }
+
+        body.day #booking .bcard {
+            background: #F0E8D8 !important;
+            border: 1px solid #8B6914 !important;
+            box-shadow: 0 24px 60px rgba(18, 12, 6, .18) !important;
+        }
+
+        body.day #booking .fgroup label {
+            color: #8B6914 !important;
+            font-weight: 600;
+        }
+
+        body.day #booking .fctl {
+            background: #E6DBCA !important;
+            border: 1px solid rgba(24, 18, 12, .18) !important;
+            color: #18120C !important;
+        }
+
+        body.day #booking .fctl:focus {
+            border-color: #C9A84C !important;
+        }
+
+        body.day #booking .fctl::placeholder {
+            color: rgba(24, 18, 12, .38) !important;
+        }
+
+        body.day #booking select.fctl option {
+            background: #E6DBCA;
+            color: #18120C;
+        }
+
+        body.day #booking .btn-gold {
+            background: #C9A84C !important;
+            color: #0d0a06 !important;
+        }
+
+        body.day #booking .btn-gold:hover {
+            background: #E2C46A !important;
+        }
+
+        /* FOOTER — always dark, consistent with night */
+        body.day footer {
+            background: #0a0704 !important;
+            border-top: 1px solid rgba(201, 168, 76, .18) !important;
+        }
+
+        body.day footer .flogo-dap {
+            color: #F0EAD6 !important;
+        }
+
+        body.day footer .flogo-sub {
+            color: #C9A84C !important;
+        }
+
+        body.day footer .fabout {
+            color: rgba(240, 234, 214, .52) !important;
+        }
+
+        body.day footer .fcol h4 {
+            color: #C9A84C !important;
+        }
+
+        body.day footer .fcol a {
+            color: rgba(240, 234, 214, .52) !important;
+        }
+
+        body.day footer .fcol a:hover {
+            color: #E2C46A !important;
+        }
+
+        body.day footer .fbot {
+            color: rgba(240, 234, 214, .35) !important;
+            border-top: 1px solid rgba(240, 234, 214, .08) !important;
+        }
+
+        body.day footer .socials a {
+            border-color: #C9A84C !important;
+            color: #C9A84C !important;
+        }
+
+        body.day footer .socials a:hover {
+            background: #C9A84C !important;
+            color: #0a0704 !important;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fbody);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color .5s, color .5s;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--fhead);
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+            width: calc(100% - 68px);
+        }
+
+        .lbl {
+            font-family: var(--flabel);
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 600;
+        }
+
+        .ttl {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            font-family: var(--flabel);
+            font-size: .82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--tr);
+            border: none;
+            text-align: center;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        .btn-gold:hover {
+            background: var(--goldlt);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 168, 76, .25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: var(--bgold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* SIDE NAV */
+        .sidenav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 68px;
+            height: 100vh;
+            background: var(--goldgrad);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            z-index: 9999;
+            box-shadow: -4px 0 18px rgba(0, 0, 0, .45);
+        }
+
+        .sidenav a {
+            color: var(--ink);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--flabel);
+            font-size: .64rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            opacity: .82;
+            transition: opacity .3s, transform .3s;
+        }
+
+        .sidenav a:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .sidenav i {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* TOP NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: calc(100% - 68px);
+            padding: 16px 4%;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--tr);
+            background: rgba(10, 16, 36, .38);
+            backdrop-filter: blur(20px) saturate(1.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            border-bottom: 1px solid rgba(201, 168, 76, .14);
+        }
+
+        nav.scrolled {
+            background: rgba(10, 16, 36, .75);
+            padding: 12px 4%;
+            border-bottom-color: rgba(201, 168, 76, .25);
+        }
+
+        /* day nav consolidated in day-mode block above */
+        .navleft {
+            display: flex;
+            align-items: center;
+        }
+
+        /* FIX 4: Nav logo "Executive Services" — bigger, more readable */
+        .navlogo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            line-height: 1;
+        }
+
+        .navlogo-dap {
+            font-family: var(--flabel);
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: 7px;
+            color: var(--text);
+        }
+
+        .navlogo-sub {
+            font-family: var(--flabel);
+            font-size: .62rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .navright {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            justify-content: flex-end;
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .navlinks a {
+            font-family: var(--flabel);
+            font-size: .75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text);
+            transition: var(--tr);
+            position: relative;
+        }
+
+        .navlinks a:hover {
+            color: var(--goldlt);
+        }
+
+        .navlinks a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background: var(--gold);
+            transition: width .3s;
+        }
+
+        .navlinks a:hover::after {
+            width: 100%;
+        }
+
+        .modetoggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: color .3s;
+            padding: 4px;
+        }
+
+        .modetoggle:hover {
+            color: var(--goldlt);
+        }
+
+        /* HERO */
+        .hero {
+            height: calc(100vh - 54px);
+            min-height: 580px;
+            width: calc(100% - 68px);
+            display: flex;
+            position: relative;
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        /* LEFT — always dark */
+        .heroleft {
+            width: 460px;
+            flex-shrink: 0;
+            height: 100%;
+            background: linear-gradient(155deg, #06090f 0%, #0d1526 100%);
+            padding: 68px 38px 38px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid rgba(201, 168, 76, .35);
+            position: relative;
+            z-index: 10;
+        }
+
+        body.day .heroleft {
+            background: linear-gradient(155deg, #06090f 0%, #0d1526 100%) !important;
+        }
+
+        .heroleft,
+        .heroleft * {
+            color: #F0EAD6;
+        }
+
+        .heroleft .goldtxt {
+            color: var(--goldlt) !important;
+        }
+
+        .herologo {
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .herologo img {
+            height: 130px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .herowave {
+            width: 100%;
+            height: 52px;
+            margin-bottom: 22px;
+            overflow: visible;
+            display: block;
+            max-width: 380px;
+        }
+
+        .herotitle {
+            font-family: var(--fhead);
+            font-size: 44px;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .herotitle em {
+            font-style: italic;
+            color: var(--goldlt);
+        }
+
+        .herobooking {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .herorow {
+            display: flex;
+            gap: 12px;
+        }
+
+        .hinputgrp {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hinputgrp label {
+            font-family: var(--flabel);
+            font-size: .62rem;
+            color: var(--goldlt);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .hinput {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(240, 234, 214, .15);
+            padding: 11px 13px;
+            color: #F0EAD6;
+            font-family: var(--fbody);
+            font-size: .86rem;
+            width: 100%;
+            outline: none;
+            transition: border-color .3s;
+        }
+
+        .hinput:focus {
+            border-color: var(--gold);
+        }
+
+        .hinput option {
+            background: #0d1526;
+        }
+
+        .aihint {
+            font-size: .75rem;
+            color: rgba(240, 234, 214, .5);
+            margin-top: 4px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .aihint span {
+            color: var(--goldlt);
+        }
+
+        /* RIGHT */
+        .heroright {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .herovideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        /* FIX 3: Overlay reduced — gradient only at bottom so cards pop, video breathes */
+        .herooverlay {
+            display: none;
+        }
+
+        .herotopbar {
+            position: relative;
+            z-index: 2;
+            padding: 14px 20px;
+            margin-top: 62px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .statwidget {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(15, 24, 48, .6);
+            backdrop-filter: blur(8px);
+            padding: 10px 15px;
+            border: var(--bsoft);
+            border-radius: 3px;
+        }
+
+        .statwidget i {
+            color: var(--gold);
+        }
+
+        .statlabel {
+            font-family: var(--flabel);
+            font-size: .58rem;
+            color: rgba(240, 234, 214, .52);
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        .statval {
+            font-size: .8rem;
+            font-weight: 500;
+            color: #F0EAD6;
+        }
+
+        .herofleetcards {
+            position: relative;
+            z-index: 2;
+            padding: 16px 20px;
+            display: flex;
+            gap: 14px;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        /* FIX 3b: Fleet cards — stronger border + slightly more opaque so they stand out from video */
+        .herocard {
+            background: rgba(8, 14, 30, .82);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(201, 168, 76, .4);
+            padding: 15px 16px;
+            width: 255px;
+            border-radius: 3px;
+            transition: var(--tr);
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .5);
+        }
+
+        .herocard:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .65);
+        }
+
+        .herocard-title {
+            font-family: var(--fbody);
+            font-weight: 600;
+            font-size: .86rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #F0EAD6;
+        }
+
+        .herocard-sub {
+            font-size: .68rem;
+            color: rgba(240, 234, 214, .52);
+        }
+
+        .herocard-img {
+            width: 100%;
+            height: 88px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        /* FIX 2: MARQUEE — night mode = dark navy/black background, gold text */
+        .marquee {
+            width: calc(100% - 68px);
+            background: #070d1c !important;
+            padding: 15px 0;
+            overflow: hidden;
+            display: flex;
+            border-top: 1px solid rgba(201, 168, 76, .2);
+            border-bottom: 1px solid rgba(201, 168, 76, .2);
+        }
+
+        /* marquee day override consolidated in day-mode block above */
+        .mtrack {
+            display: flex;
+            gap: 80px;
+            animation: marquee 40s linear infinite;
+            flex-shrink: 0;
+        }
+
+        .mitem {
+            font-family: var(--fhead);
+            font-size: 1.1rem;
+            color: var(--gold);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-100%)
+            }
+        }
+
+        /* ABOUT */
+        #about {
+            background: #0a1122 !important;
+        }
+
+        /* about day overrides consolidated in day-mode block above */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-grid p {
+            margin-bottom: 16px;
+            color: var(--muted);
+            font-weight: 300;
+            font-size: 1rem;
+        }
+
+        .about-quote {
+            padding-left: 20px;
+            border-left: 2px solid var(--gold);
+            margin: 24px 0;
+            font-family: var(--fhead);
+            font-style: italic;
+            font-size: 1.22rem;
+            color: var(--goldlt);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+            list-style: none;
+        }
+
+        .tags li {
+            font-family: var(--flabel);
+            font-size: .68rem;
+            padding: 6px 14px;
+            background: rgba(201, 168, 76, .1);
+            border-left: 2px solid var(--gold);
+            color: var(--text);
+            letter-spacing: .8px;
+        }
+
+        .about-img {
+            position: relative;
+            padding: 16px;
+        }
+
+        .about-img::before,
+        .about-img::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--gold);
+            transition: var(--tr);
+        }
+
+        .about-img::before {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .about-img::after {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+
+        .about-img:hover::before,
+        .about-img:hover::after {
+            width: 70px;
+            height: 70px;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* FLEET */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 50px;
+        }
+
+        .fcard {
+            background: #0d1630;
+            border: var(--bsoft);
+            padding: 32px;
+            position: relative;
+            transition: var(--tr);
+        }
+
+        .fcard:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .fbadge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--bg3);
+            border-left: var(--bsoft);
+            border-bottom: var(--bsoft);
+            padding: 6px 13px;
+            font-family: var(--flabel);
+            font-size: .6rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .fimg {
+            width: 100%;
+            height: 196px;
+            object-fit: cover;
+            margin-bottom: 22px;
+            border-radius: 2px;
+            transition: transform .5s;
+        }
+
+        .fcard:hover .fimg {
+            transform: scale(1.04);
+        }
+
+        .fname {
+            font-size: 1.6rem;
+            margin-bottom: 9px;
+        }
+
+        .fspecs {
+            display: flex;
+            gap: 18px;
+            color: var(--muted);
+            font-size: .86rem;
+            margin-bottom: 17px;
+            font-weight: 500;
+        }
+
+        .fspecs span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .fdesc {
+            color: var(--muted);
+            font-size: .9rem;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+
+        /* SERVICES */
+        #services {
+            background-image: url('Images/philly_drone_event_1772672795411.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        #services::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--bg);
+            opacity: .88;
+            z-index: 1;
+        }
+
+        .svc-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .scard {
+            padding: 36px;
+            background: rgba(8, 14, 32, .72);
+            backdrop-filter: blur(10px);
+            border: var(--bsoft);
+            position: relative;
+            overflow: hidden;
+            transition: var(--tr);
+        }
+
+        .scard::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: width .4s;
+        }
+
+        .scard:hover::after {
+            width: 100%;
+        }
+
+        .sicon {
+            width: 37px;
+            height: 37px;
+            color: var(--gold);
+            margin-bottom: 19px;
+        }
+
+        .stitle {
+            font-size: 1.28rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .sdesc {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        /* AI */
+        .ai-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .ai-visual {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid rgba(201, 168, 76, .5);
+            box-shadow: 0 0 0 6px rgba(201, 168, 76, .08), 0 20px 50px rgba(0, 0, 0, .5);
+        }
+
+        /* FIX 5: Gold frame around the AI section image */
+        .ai-visual img {
+            width: 100%;
+            border-radius: 4px;
+            filter: grayscale(30%) sepia(15%) hue-rotate(180deg) brightness(.75);
+        }
+
+        .ai-dot {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--gold), 0 0 24px var(--gold);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: .5;
+                transform: scale(.8)
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2)
+            }
+        }
+
+        /* FIX 5b: Chat demo — centered below image, darker, gold accent border */
+        .chatdemo {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 88%;
+            background: rgba(6, 10, 22, .94);
+            border: 1px solid rgba(201, 168, 76, .35);
+            border-top: 2px solid var(--gold);
+            padding: 18px 20px;
+            border-radius: 4px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .65);
+        }
+
+        .cmsg {
+            display: flex;
+            gap: 9px;
+            margin-bottom: 11px;
+        }
+
+        .cmsg:last-child {
+            margin-bottom: 0;
+        }
+
+        .cicon {
+            width: 27px;
+            height: 27px;
+            background: var(--bg3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .ctext {
+            background: rgba(15, 24, 48, .8);
+            padding: 9px 12px;
+            border-radius: 0 7px 7px 7px;
+            font-size: .79rem;
+            color: var(--muted);
+            border: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .ai-feats {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .ai-feats li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .ai-feats i {
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .ai-feats strong {
+            font-family: var(--fbody);
+            font-weight: 500;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .ai-feats p {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        /* BOOKING */
+        #booking {
+            background: var(--bg2);
+        }
+
+        .bcard {
+            background: var(--bg);
+            padding: 52px;
+            border: var(--bgold);
+            max-width: 960px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+
+        .fgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .fgroup {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .fgroup.full {
+            grid-column: span 2;
+        }
+
+        .fgroup label {
+            font-family: var(--flabel);
+            font-size: .7rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .fctl {
+            background: var(--bg2);
+            border: var(--bsoft);
+            padding: 13px 16px;
+            font-family: var(--fbody);
+            font-size: .9rem;
+            font-weight: 300;
+            color: var(--text);
+            width: 100%;
+            outline: none;
+            transition: border-color .3s;
+        }
+
+        .fctl:focus {
+            border-color: var(--gold);
+        }
+
+        .fctl::placeholder {
+            color: rgba(240, 234, 214, .28);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #04060d;
+            padding: 86px 0 32px;
+            border-top: var(--bsoft);
+            width: calc(100% - 68px);
+        }
+
+        /* footer day override consolidated in day-mode block above */
+        .fg {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 52px;
+            margin-bottom: 52px;
+        }
+
+        .flogo-dap {
+            font-family: var(--flabel);
+            font-size: 1.45rem;
+            font-weight: 600;
+            letter-spacing: 6px;
+            color: var(--text);
+        }
+
+        .flogo-sub {
+            font-family: var(--flabel);
+            font-size: .46rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            display: block;
+            margin-top: 2px;
+            margin-bottom: 16px;
+        }
+
+        .fabout {
+            color: var(--muted);
+            font-size: .86rem;
+            margin-bottom: 18px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 9px;
+        }
+
+        .socials a {
+            width: 36px;
+            height: 36px;
+            border: var(--bgold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            transition: var(--tr);
+        }
+
+        .socials a:hover {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        .fcol h4 {
+            font-family: var(--flabel);
+            font-size: .86rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 17px;
+        }
+
+        .fcol ul {
+            list-style: none;
+        }
+
+        .fcol li {
+            margin-bottom: 12px;
+        }
+
+        .fcol a {
+            color: var(--muted);
+            font-size: .86rem;
+            transition: color .3s;
+        }
+
+        .fcol a:hover {
+            color: var(--goldlt);
+        }
+
+        .fbot {
+            border-top: var(--bsoft);
+            padding-top: 18px;
+            text-align: center;
+            color: var(--muted);
+            font-size: .76rem;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:1100px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .heroleft {
+                width: 100%;
+                padding: 88px 6% 34px;
+                border-right: none;
+                border-bottom: 1px solid rgba(201, 168, 76, .25);
+            }
+
+            .heroright {
+                min-height: 55vh;
+            }
+
+            .fleet-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ai-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 46px;
+            }
+
+            .fg {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+
+            .sidenav {
+                display: none;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            .herofleetcards {
+                justify-content: center;
+            }
+        }
+
+        @media(max-width:768px) {
+            .fleet-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fgrid {
+                grid-template-columns: 1fr;
+            }
+
+            .fgroup.full {
+                grid-column: 1;
+            }
+
+            .fg {
+                grid-template-columns: 1fr;
+            }
+
+            .herofleetcards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .herocard {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .bcard {
+                padding: 28px 18px;
+            }
+
+            .navlinks {
+                display: none;
+            }
+
+            .herotitle {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidenav">
+        <a href="#home"> <i data-feather="home"></i> Home</a>
+        <a href="#services"><i data-feather="briefcase"></i> Services</a>
+        <a href="#fleet"> <i data-feather="navigation"></i> Fleet</a>
+        <a href="#booking"><i data-feather="calendar"></i> Booking</a>
+        <a href="#"> <i data-feather="user"></i> Account</a>
+        <a href="#"> <i data-feather="settings"></i> Setup</a>
+    </div>
+
+    <nav id="navbar">
+        <div class="navleft">
+            <div class="navlinks">
+                <a href="#about">About</a>
+                <a href="#fleet">Fleet</a>
+                <a href="#services">Services</a>
+                <a href="#ai">AI Travel</a>
+            </div>
+        </div>
+        <a href="#home" class="navlogo">
+            <span class="navlogo-dap">DAP</span>
+            <span class="navlogo-sub">Executive Services</span>
+        </a>
+        <div class="navright">
+            <button class="modetoggle" id="modeBtn" aria-label="Toggle theme" style="display:none;">
+                <i data-feather="sun" id="modeIcon"></i>
+            </button>
+            <a href="#booking" class="btn btn-gold" style="padding:11px 22px;font-size:.76rem;">Book Now</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="heroleft">
+            <div class="herologo">
+                <img src="Images/daplogo.png" alt="DAP Executive Services" onerror="this.src='Images/daplogo.png'">
+            </div>
+            <svg class="herowave" viewBox="0 0 800 52" preserveAspectRatio="none" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="wg" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#8B6914" stop-opacity="0" />
+                        <stop offset="15%" stop-color="#C9A84C" stop-opacity="0.85" />
+                        <stop offset="40%" stop-color="#E2C46A" stop-opacity="1" />
+                        <stop offset="65%" stop-color="#C9A84C" stop-opacity="1" />
+                        <stop offset="85%" stop-color="#E2C46A" stop-opacity="0.7" />
+                        <stop offset="100%" stop-color="#8B6914" stop-opacity="0" />
+                    </linearGradient>
+                </defs>
+                <path d="M0 26 Q100 6 200 26 Q300 46 400 26 Q500 6 600 26 Q700 46 800 26" stroke="url(#wg)"
+                    stroke-width="2.5" fill="none">
+                    <animate attributeName="d" dur="6s" repeatCount="indefinite" values="M0 26 Q100 6 200 26 Q300 46 400 26 Q500 6 600 26 Q700 46 800 26;
+                          M0 26 Q100 46 200 26 Q300 6 400 26 Q500 46 600 26 Q700 6 800 26;
+                          M0 26 Q100 6 200 26 Q300 46 400 26 Q500 6 600 26 Q700 46 800 26" />
+                </path>
+                <path d="M0 34 Q120 14 240 34 Q360 54 480 34 Q600 14 720 34 Q770 40 800 34" stroke="url(#wg)"
+                    stroke-width="1.4" fill="none" opacity="0.55">
+                    <animate attributeName="d" dur="8s" repeatCount="indefinite" values="M0 34 Q120 14 240 34 Q360 54 480 34 Q600 14 720 34 Q770 40 800 34;
+                          M0 34 Q120 54 240 34 Q360 14 480 34 Q600 54 720 34 Q770 28 800 34;
+                          M0 34 Q120 14 240 34 Q360 54 480 34 Q600 14 720 34 Q770 40 800 34" />
+                </path>
+                <path d="M0 20 Q200 36 400 20 Q600 4 800 20" stroke="url(#wg)" stroke-width="0.8" fill="none"
+                    opacity="0.28">
+                    <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M0 20 Q200 36 400 20 Q600 4 800 20;
+                          M0 20 Q200 4 400 20 Q600 36 800 20;
+                          M0 20 Q200 36 400 20 Q600 4 800 20" />
+                </path>
+            </svg>
+            <h1 class="herotitle">WHERE TO,<br><em>COMMANDER?</em></h1>
+            <div class="herobooking">
+                <div class="herorow">
+                    <div class="hinputgrp">
+                        <label>Departure</label>
+                        <input type="text" class="hinput" placeholder="e.g. Midtown, NY">
+                    </div>
+                    <div class="hinputgrp">
+                        <label>Destination</label>
+                        <input type="text" class="hinput" placeholder="e.g. EWR Terminal C">
+                    </div>
+                </div>
+                <div class="herorow">
+                    <div class="hinputgrp">
+                        <label>Date / Time</label>
+                        <input type="text" class="hinput" placeholder="Tomorrow, 6:00 PM">
+                    </div>
+                    <div class="hinputgrp">
+                        <label>Passengers</label>
+                        <select class="hinput">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="aihint"><span>AI Status:</span> Ready to route Midtown to EWR</div>
+                <a href="#booking" class="btn btn-gold" style="width:100%;letter-spacing:3px;">SELECT VEHICLE</a>
+            </div>
+        </div>
+
+        <div class="heroright">
+            <video autoplay muted loop playsinline preload="none" class="herovideo" id="bgvid">
+                <source src="Videos/chauffeur.mp4" type="video/mp4">
+            </video>
+            <div class="herooverlay"></div>
+            <div class="herotopbar">
+                <div class="statwidget">
+                    <i data-feather="navigation" width="14"></i>
+                    <div>
+                        <span class="statlabel">LIVE FLIGHT TRACKING</span>
+                        <span class="statval">UA 112 &nbsp;|&nbsp; ON TIME (Est. 6:45 PM)</span>
+                    </div>
+                </div>
+                <div class="statwidget">
+                    <i data-feather="cloud" width="14"></i>
+                    <div>
+                        <span class="statlabel">DESTINATION WEATHER</span>
+                        <span class="statval">PHL &nbsp;|&nbsp; 68°F SUNNY</span>
+                    </div>
+                </div>
+            </div>
+            <div class="herofleetcards">
+                <div class="herocard">
+                    <div class="herocard-title">Executive Sedan</div>
+                    <div class="herocard-sub">Mercedes S-Class or Similar</div>
+                    <img src="Images/luxury_sedan_1772672459884.png" alt="Executive Sedan" class="herocard-img">
+                    <a href="#booking" class="btn btn-outline" style="padding:9px;font-size:.7rem;width:100%;">BOOK THIS
+                        VEHICLE</a>
+                </div>
+                <div class="herocard">
+                    <div class="herocard-title">Luxury SUV</div>
+                    <div class="herocard-sub">Cadillac Escalade or Similar</div>
+                    <img src="Images/cadellac 1.png" alt="Luxury SUV" class="herocard-img">
+                    <a href="#booking" class="btn btn-outline" style="padding:9px;font-size:.7rem;width:100%;">SELECT
+                        FOR BOOKING</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee">
+        <div class="mtrack">
+            <span class="mitem">Philadelphia <i data-feather="star" width="13"></i></span>
+            <span class="mitem">King of Prussia <i data-feather="star" width="13"></i></span>
+            <span class="mitem">Main Line <i data-feather="star" width="13"></i></span>
+            <span class="mitem">Wilmington <i data-feather="star" width="13"></i></span>
+            <span class="mitem">New York Transfers <i data-feather="star" width="13"></i></span>
+            <span class="mitem">PHL Airport <i data-feather="star" width="13"></i></span>
+        </div>
+        <div class="mtrack" aria-hidden="true">
+            <span class="mitem">Philadelphia <i data-feather="star" width="13"></i></span>
+            <span class="mitem">King of Prussia <i data-feather="star" width="13"></i></span>
+            <span class="mitem">Main Line <i data-feather="star" width="13"></i></span>
+            <span class="mitem">Wilmington <i data-feather="star" width="13"></i></span>
+            <span class="mitem">New York Transfers <i data-feather="star" width="13"></i></span>
+            <span class="mitem">PHL Airport <i data-feather="star" width="13"></i></span>
+        </div>
+    </div>
+
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid reveal">
+                <div>
+                    <span class="lbl">Our Standard</span>
+                    <h2 class="ttl">Elevating the Journey.</h2>
+                    <p>At DAP Executive, we redefine private transportation. Combining discreet, highly-trained
+                        professional chauffeurs with an immaculate fleet of the world's most refined vehicles, we
+                        provide an unparalleled travel experience tailored for executives, VIPs, and those who demand
+                        the absolute best.</p>
+                    <p>Providing customized discreet door to door concierge service.</p>
+                    <h3 style="font-size:1.12rem;margin-bottom:12px;">Why Choose DAP?</h3>
+                    <ul class="tags">
+                        <li>Trusted by Families, Executives &amp; VIPs</li>
+                        <li>24/7 Availability</li>
+                        <li>Discreet Door-to-Door Concierge</li>
+                        <li>Uncompromising Safety &amp; Comfort</li>
+                        <li>Corporate &amp; Religious Organizations</li>
+                    </ul>
+                    <div class="about-quote">"We go where you need us to go!! We've got you covered—24/7."</div>
+                    <a href="#fleet" class="btn btn-outline" style="margin-top:8px;">Explore Fleet</a>
+                </div>
+                <div class="about-img">
+                    <img src="Images/rahim-suit1.png" alt="DAP Executive Owner" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="fleet">
+        <div class="container">
+            <div class="reveal" style="text-align:center;">
+                <span class="lbl">Our Collection</span>
+                <h2 class="ttl">The Executive Fleet</h2>
+            </div>
+            <div class="fleet-grid">
+                <div class="fcard reveal">
+                    <span class="fbadge">Class A</span>
+                    <img src="Images/luxury_sedan_1772672459884.png" alt="Executive Sedan" class="fimg" loading="lazy">
+                    <h3 class="fname">Executive Sedan</h3>
+                    <div class="fspecs">
+                        <span><i data-feather="users" width="14"></i> 3 Passengers</span>
+                        <span><i data-feather="briefcase" width="14"></i> 3 Luggages</span>
+                    </div>
+                    <p class="fdesc">The perfect balance of luxury and efficiency for airport transfers and city
+                        meetings. Features premium leather seating and climate control.</p>
+                    <a href="#booking" class="btn btn-outline" style="width:100%;">Reserve</a>
+                </div>
+                <div class="fcard reveal" style="transition-delay:.1s;">
+                    <span class="fbadge">Class S</span>
+                    <img src="Images/cadellac 1.png" alt="Premium SUV" class="fimg" loading="lazy">
+                    <h3 class="fname">Premium SUV</h3>
+                    <div class="fspecs">
+                        <span><i data-feather="users" width="14"></i> 6 Passengers</span>
+                        <span><i data-feather="briefcase" width="14"></i> 6 Luggages</span>
+                    </div>
+                    <p class="fdesc">Commanding presence and expansive legroom. Ideal for corporate roadshows, small
+                        groups, and extended luggage needs.</p>
+                    <a href="#booking" class="btn btn-outline" style="width:100%;">Reserve</a>
+                </div>
+                <div class="fcard reveal" style="transition-delay:.2s;">
+                    <span class="fbadge">Class V</span>
+                    <img src="Images/chauffeur-car.png" alt="VIP Sprinter" class="fimg" loading="lazy"
+                        onerror="this.src='Images/cadellac 1.png'">
+                    <h3 class="fname">VIP Sprinter</h3>
+                    <div class="fspecs">
+                        <span><i data-feather="users" width="14"></i> 14 Passengers</span>
+                        <span><i data-feather="briefcase" width="14"></i> 10 Luggages</span>
+                    </div>
+                    <p class="fdesc">Mobile boardroom and ultimate group transport. Equipped with captain's chairs,
+                        entertainment systems, and workstation tables.</p>
+                    <a href="#booking" class="btn btn-outline" style="width:100%;">Reserve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="svc-inner container">
+            <div class="reveal">
+                <span class="lbl">Expertise</span>
+                <h2 class="ttl">Tailored Services</h2>
+            </div>
+            <div class="svc-grid">
+                <div class="scard reveal">
+                    <i data-feather="briefcase" class="sicon"></i>
+                    <h3 class="stitle">Corporate Travel</h3>
+                    <p class="sdesc">Reliable, discreet transportation for roadshows, board meetings, and daily
+                        executive commuting. Dedicated account managers included.</p>
+                </div>
+                <div class="scard reveal" style="transition-delay:.1s;">
+                    <i data-feather="navigation" class="sicon"></i>
+                    <h3 class="stitle">Airport Transfers</h3>
+                    <p class="sdesc">Seamless arrivals and departures. We track your flight in real-time and provide
+                        inside meet-and-greet service at baggage claim.</p>
+                </div>
+                <div class="scard reveal" style="transition-delay:.2s;">
+                    <i data-feather="clock" class="sicon"></i>
+                    <h3 class="stitle">Hourly As-Directed</h3>
+                    <p class="sdesc">Total flexibility. Keep your chauffeur on standby for an evening out, a shopping
+                        excursion, or a multi-stop itinerary.</p>
+                </div>
+                <div class="scard reveal" style="transition-delay:.3s;">
+                    <i data-feather="star" class="sicon"></i>
+                    <h3 class="stitle">Special Events</h3>
+                    <p class="sdesc">Make a lasting impression at galas, weddings, and red carpet events with our
+                        immaculate fleet and white-glove service level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="ai">
+        <div class="container">
+            <div class="ai-grid reveal">
+                <div class="ai-visual">
+                    <video autoplay muted loop playsinline preload="none"
+                        style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+                        <source src="Videos/aiorb-agent.mp4" type="video/mp4">
+                    </video>
+                    <div class="ai-dot"></div>
+                    <div class="chatdemo">
+                        <div class="cmsg">
+                            <div class="cicon"><i data-feather="user" width="13"></i></div>
+                            <div class="ctext" style="color:var(--text);">Adjust pick-up 45 mins earlier, traffic is bad
+                                on I-95.</div>
+                        </div>
+                        <div class="cmsg">
+                            <div class="cicon" style="background:rgba(201,168,76,.12);"><i data-feather="cpu"
+                                    width="13"></i></div>
+                            <div class="ctext">Done. ETA now 4:15 PM. Driver rerouted around congestion zone.</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding-top:16px;">
+                    <span class="lbl">Next Generation</span>
+                    <h2 class="ttl">AI Executive Travel System</h2>
+                    <p style="color:var(--muted);font-size:1rem;margin-bottom:8px;">DAP Executive integrates
+                        cutting-edge artificial intelligence to eliminate logistics friction. Our proprietary system
+                        proactively manages every detail of your itinerary.</p>
+                    <ul class="ai-feats">
+                        <li><i data-feather="zap"></i>
+                            <div><strong>Predictive Traffic Routing</strong>
+                                <p>Adjusts routes in real-time anticipating congestion before it happens.</p>
+                            </div>
+                        </li>
+                        <li><i data-feather="calendar"></i>
+                            <div><strong>Calendar Sync Integration</strong>
+                                <p>Automatically generates booking details from your Outlook or Google Workspace.</p>
+                            </div>
+                        </li>
+                        <li><i data-feather="bar-chart-2"></i>
+                            <div><strong>Dynamic Fleet Allocation</strong>
+                                <p>Ensures the perfect vehicle is always available for your specific requirements.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="booking">
+        <div class="container">
+            <div class="reveal" style="text-align:center;margin-bottom:36px;">
+                <span class="lbl">Reservation</span>
+                <h2 class="ttl">Schedule Your Ride</h2>
+            </div>
+            <div class="bcard reveal">
+                <form id="bookingForm"
+                    onsubmit="event.preventDefault();alert('Booking submitted! A representative will contact you shortly.');">
+                    <div class="fgrid">
+                        <div class="fgroup"><label for="pickup">Pickup Location</label><input type="text" id="pickup"
+                                class="fctl" placeholder="Enter address or airport" required></div>
+                        <div class="fgroup"><label for="dropoff">Drop-off Location</label><input type="text"
+                                id="dropoff" class="fctl" placeholder="Enter address or destination" required></div>
+                        <div class="fgroup"><label for="rdate">Date</label><input type="date" id="rdate" class="fctl"
+                                required></div>
+                        <div class="fgroup"><label for="rtime">Time</label><input type="time" id="rtime" class="fctl"
+                                required></div>
+                        <div class="fgroup">
+                            <label for="vehicle">Vehicle Class</label>
+                            <select id="vehicle" class="fctl">
+                                <option value="sedan">Executive Sedan</option>
+                                <option value="suv">Premium SUV</option>
+                                <option value="sprinter">VIP Sprinter</option>
+                            </select>
+                        </div>
+                        <div class="fgroup"><label for="pax">Passengers</label><input type="number" id="pax"
+                                class="fctl" min="1" max="14" value="1"></div>
+                        <div class="fgroup full"><label for="notes">Special Requests / Notes</label><textarea id="notes"
+                                class="fctl" rows="3"
+                                placeholder="Flight numbers, child seats, preferred routes..."></textarea></div>
+                        <div class="fgroup full" style="margin-top:9px;"><button type="submit" class="btn btn-gold"
+                                style="width:100%;">Request Quote</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="fg">
+                <div class="fcol">
+                    <div class="flogo-dap">DAP</div>
+                    <span class="flogo-sub">Executive Services</span>
+                    <p class="fabout">The premier luxury transportation and AI-driven logistics provider serving the
+                        greater metropolitan area.</p>
+                    <div class="socials">
+                        <a href="#"><i data-feather="instagram" width="15"></i></a>
+                        <a href="#"><i data-feather="linkedin" width="15"></i></a>
+                        <a href="#"><i data-feather="twitter" width="15"></i></a>
+                    </div>
+                </div>
+                <div class="fcol">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#fleet">Our Fleet</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#ai">AI System</a></li>
+                    </ul>
+                </div>
+                <div class="fcol">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Airport Transfers</a></li>
+                        <li><a href="#services">Corporate Accounts</a></li>
+                        <li><a href="#services">Special Events</a></li>
+                        <li><a href="#services">Hourly Directed</a></li>
+                    </ul>
+                </div>
+                <div class="fcol">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+18005550199">1-800-555-0199</a></li>
+                        <li><a
+                                href="/cdn-cgi/l/email-protection#c5b7a0b6a0b7b3a4b1acaaabb685a1a4b5a0bda0a6b0b1acb3a0eba6aaa8"><span
+                                    class="__cf_email__"
+                                    data-cfemail="cfbdaabcaabdb9aebba6a0a1bc8fabaebfaab7aaacbabba6b9aae1aca0a2">[email&#160;protected]</span></a>
+                        </li>
+                        <li><a href="#">Philadelphia, PA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fbot">
+                <p>&copy; 2026 DAP Executive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for everything including deferred scripts
+        window.addEventListener('load', function () {
+
+            // Feather icons — safe call after deferred script loaded
+            if (typeof feather !== 'undefined') feather.replace();
+
+            const nb = document.getElementById('navbar');
+            window.addEventListener('scroll', () => nb.classList.toggle('scrolled', window.scrollY > 50));
+
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('on'));
+
+            const rd = document.getElementById('rdate');
+            if (rd) rd.valueAsDate = new Date();
+
+            const modeBtn = document.getElementById('modeBtn');
+            const modeIcon = document.getElementById('modeIcon');
+            function applyMode(m) {
+                document.body.classList.toggle('day', m === 'day');
+                if (modeIcon) modeIcon.setAttribute('data-feather', m === 'day' ? 'moon' : 'sun');
+                if (typeof feather !== 'undefined') feather.replace();
+            }
+            applyMode('night'); // day mode temporarily disabled
+            if (modeBtn) modeBtn.addEventListener('click', () => {
+                // day mode disabled — no-op for now
+            });
+
+            // Video — start after page load so it doesn't compete with initial render
+            const bgv = document.getElementById('bgvid');
+            if (bgv) { bgv.muted = true; bgv.play().catch(() => { }); }
+
+        }); // end load
+    </script>
+</body>
+
+</html>
