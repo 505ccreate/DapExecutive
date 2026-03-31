@@ -1,0 +1,7 @@
+{
+  "name": "V4 DAP Executive",
+  "description": "An elite AI executive concierge with voice interaction and real-time visual feedback.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
