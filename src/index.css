@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-dap-gold: #C9A84C;
+  --color-dap-gold-light: #D4BC74;
+  --color-dap-navy: #051124;
+  --color-dap-navy-dark: #020814;
+  --color-dap-navy-light: #0A1A35;
+  --color-dap-cream: #F5F2ED;
+}
+
+@layer utilities {
+  .gold-gradient {
+    background: linear-gradient(180deg, #8B6914 0%, #C9A84C 30%, #E2C46A 50%, #C9A84C 70%, #8B6914 100%);
+  }
+  
+  .herowave {
+    width: 100%;
+    height: 52px;
+    margin-bottom: 22px;
+    overflow: visible;
+    display: block;
+    max-width: 380px;
+  }
+  
+  .glass-panel {
+    background: rgba(5, 17, 36, 0.65);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(201, 168, 76, 0.12);
+  }
+  
+  .gold-border-focus {
+    @apply focus:outline-none focus:border-dap-gold/50 transition-colors;
+  }
+}
+
+:root {
+  --bg: #020814;
+  --navy: #051124;
+  --gold: #C9A84C;
+}
+
+body {
+  @apply bg-[#020814] text-dap-cream font-sans antialiased;
+}
